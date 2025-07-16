@@ -47,7 +47,7 @@ export default function RandomImageSlot() {
         height: '100vh',
         width: '100%',
         backgroundColor: '#fefefe',
-        backgroundImage: 'url("/images/bg-l.png")',
+        backgroundImage: 'url("images/bg-l.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -56,6 +56,7 @@ export default function RandomImageSlot() {
     >
       {/* 左側：圖片說明 */}
       <div
+        class="left" 
         style={{
           flex: 1,
           whiteSpace: 'pre-wrap',
@@ -63,8 +64,6 @@ export default function RandomImageSlot() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          //backgroundColor: '#f3f3f3',
-          //borderRight: '2px solid #ccc',
           transition: 'opacity 0.6s ease-in-out',
           opacity: isSpinning ? 0 : 1,
         }}
@@ -79,6 +78,7 @@ export default function RandomImageSlot() {
 
       {/* 右側：圖片與抽選 */}
       <div
+        class="right"
         style={{
           flex: 1,
           padding: '40px',
@@ -100,7 +100,7 @@ export default function RandomImageSlot() {
           }}
         />
         <img
-          src="/images/button.png"
+          src="images/button.png"
           alt="抽選按鈕"
           onClick={startSpinning}
           style={{

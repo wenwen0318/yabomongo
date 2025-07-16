@@ -40,3 +40,36 @@
 .read-the-docs {
   color: #888;
 }
+
+/* 基本樣式 - 大螢幕 */
+.container {
+  display: flex;  /* 使用 Flexbox 布局 */
+  justify-content: space-between;  /* 兩個區塊之間有空間 */
+  align-items: flex-start;  /* 上對齊 */
+  padding: 20px;
+}
+
+.left, .right {
+  flex: 1;  /* 左右區塊佔等比例寬度 */
+  margin: 10px;
+}
+
+.left {
+  background-color: #f9f9f9;
+}
+
+.right {
+  background-color: #f0f0f0;
+}
+
+/* 手機尺寸以下 - 垂直排列 */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;  /* 改為上下排列 */
+  }
+
+  .left, .right {
+    flex: none;  /* 不需要再佔等比例寬度，讓其根據內容自適應 */
+    margin: 10px 0;
+  }
+}
