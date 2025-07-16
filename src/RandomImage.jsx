@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import imageList from './data'; // <-- 資料格式：{ src, name, description }
+import './App.css';
 
 export default function RandomImageSlot() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -40,34 +41,9 @@ export default function RandomImageSlot() {
   const currentImage = imageList[currentIndex];
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        height: '100vh',
-        width: '100%',
-        backgroundColor: '#fefefe',
-        backgroundImage: 'url("images/bg-l.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        fontFamily: '"Chocolate Classical Sans", sans-serif',
-      }}
-    >
+    <div className="container">
       {/* 左側：圖片說明 */}
-      <div
-        class="left" 
-        style={{
-          flex: 1,
-          whiteSpace: 'pre-wrap',
-          padding: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          transition: 'opacity 0.6s ease-in-out',
-          opacity: isSpinning ? 0 : 1,
-        }}
-      >
+      <div className="left" >
         <h1 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#000000' }}>
           {currentImage.name}
         </h1>
@@ -77,17 +53,7 @@ export default function RandomImageSlot() {
       </div>
 
       {/* 右側：圖片與抽選 */}
-      <div
-        class="right"
-        style={{
-          flex: 1,
-          padding: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className="right">
         <img
           src={currentImage.src}
           alt={currentImage.name}

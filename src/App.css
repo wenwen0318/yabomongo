@@ -1,7 +1,6 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -45,9 +44,17 @@
 .container {
   display: flex;  /* 使用 Flexbox 布局 */
   justify-content: space-between;  /* 兩個區塊之間有空間 */
-  align-items: flex-start;  /* 上對齊 */
-  padding: 20px;
+  flex-direction: row;  /* 設置左右排列 */
+  height: 100vh;
+  width: 100%;
+  background-color: #84C74C;
+  background-image: url("images/bg-l.png"); /* 背景圖片 */
+  background-size: cover;  /* 讓背景圖覆蓋容器 */
+  background-position: center; /* 讓背景圖居中 */
+  background-repeat: no-repeat; /* 防止背景圖重複 */
+  font-family: 'Chocolate Classical Sans', sans-serif; /* 設定字型 */
 }
+
 
 .left, .right {
   flex: 1;  /* 左右區塊佔等比例寬度 */
@@ -55,21 +62,47 @@
 }
 
 .left {
-  background-color: #f9f9f9;
+  flex: 1;
+  white-space: pre-wrap;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;        /* 垂直置中 */
+  align-items: center;            /* 水平置中 */
+
+  height: 100%;                   /* 填滿父容器的高度 */
+  box-sizing: border-box; /* ✅ 避免 padding 撐大區塊 */
+  overflow: auto;          /* ✅ 避免超出隱藏 */
+  transition: opacity 0.6s ease-in-out;
+  opacity: var(--isSpinning, 1);
+  text-align: center;             /* 讓文字內容居中對齊 */
 }
 
 .right {
-  background-color: #f0f0f0;
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
 }
 
 /* 手機尺寸以下 - 垂直排列 */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;  /* 改為上下排列 */
+    flex-direction: column-reverse;
+    min-height: auto; /* ✅ 讓高度可自動撐開 */
   }
 
   .left, .right {
-    flex: none;  /* 不需要再佔等比例寬度，讓其根據內容自適應 */
     margin: 10px 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .right img {
+    max-width: 100%;
+    height: auto;
   }
 }
