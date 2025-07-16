@@ -48,7 +48,7 @@
   height: 100vh;
   width: 100%;
   background-color: #84C74C;
-  background-image: url("images/bg-l.png"); /* 背景圖片 */
+  background-image: url("/images/bg-l.png"); /* 背景圖片 */
   background-size: cover;  /* 讓背景圖覆蓋容器 */
   background-position: center; /* 讓背景圖居中 */
   background-repeat: no-repeat; /* 防止背景圖重複 */
